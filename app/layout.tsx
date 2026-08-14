@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import CookieConsent from "./components/cookie-consent";
+import { content } from "./content";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -14,9 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "GlobalPass | Site Institucional",
-  description:
-    "Site institucional moderno para empresa de estratégia, branding e tecnologia.",
+  title: content.meta.title,
+  description: content.meta.description,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

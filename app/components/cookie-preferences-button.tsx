@@ -1,5 +1,6 @@
 "use client";
 
+import { content } from "../content";
 import { COOKIE_PREFERENCES_EVENT } from "./cookie-consent";
 
 export default function CookiePreferencesButton() {
@@ -11,7 +12,7 @@ export default function CookiePreferencesButton() {
         window.dispatchEvent(new Event(COOKIE_PREFERENCES_EVENT))
       }
     >
-      Preferências de cookies
+      {content.cookies.preferences}
     </button>
   );
 }

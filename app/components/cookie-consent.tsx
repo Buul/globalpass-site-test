@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { content } from "../content";
 
 const STORAGE_KEY = "globalpass:cookie-consent";
 
@@ -65,12 +66,8 @@ export default function CookieConsent() {
     >
       <div className="cookie-banner-card">
         <div className="cookie-banner-text">
-          <strong id="cookie-banner-title">Cookies neste site</strong>
-          <p id="cookie-banner-description">
-            Usamos cookies necessários para o funcionamento do site e, com o seu
-            consentimento, cookies de análise para entender o uso das páginas.
-            Você pode rever sua escolha no rodapé.
-          </p>
+          <strong id="cookie-banner-title">{content.cookies.title}</strong>
+          <p id="cookie-banner-description">{content.cookies.description}</p>
         </div>
 
         <div className="cookie-banner-actions">
@@ -79,14 +76,14 @@ export default function CookieConsent() {
             className="button button-secondary"
             onClick={() => decide("essential")}
           >
-            Apenas necessários
+            {content.cookies.essential}
           </button>
           <button
             type="button"
             className="button button-primary"
             onClick={() => decide("all")}
           >
-            Aceitar todos
+            {content.cookies.acceptAll}
           </button>
         </div>
       </div>
