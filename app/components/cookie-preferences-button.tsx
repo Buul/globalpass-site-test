@@ -2,6 +2,7 @@
 
 import { content } from "../content";
 import { COOKIE_PREFERENCES_EVENT } from "./cookie-consent";
+import "./cookie-preferences-button.css";
 
 export default function CookiePreferencesButton() {
   return (

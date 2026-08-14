@@ -1,0 +1,162 @@
+.impact-table {
+  display: grid;
+  gap: 24px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.table-header-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 0;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  padding: 28px 24px;
+  color: white;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: -0.02em;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.table-label-header,
+.table-before-header,
+.table-after-header {
+  display: flex;
+  align-items: center;
+}
+
+.table-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.comparison-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 0;
+  padding: 28px 24px;
+  border-bottom: 1px solid var(--line);
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.comparison-row:last-child {
+  border-bottom: none;
+}
+
+.comparison-row:hover {
+  background: rgba(90, 0, 227, 0.04);
+}
+
+.table-label {
+  font-weight: 600;
+  color: var(--foreground);
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.table-before,
+.table-after {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.status-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 28px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.status-before {
+  color: #ef4444;
+}
+
+.status-after {
+  color: #10b981;
+  font-weight: 800;
+}
+
+.table-before p,
+.table-after p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .table-header-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 20px 16px;
+    font-size: 0.9rem;
+  }
+
+  .comparison-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 20px 16px;
+  }
+
+  .table-label {
+    font-size: 0.95rem;
+  }
+
+  .table-before,
+  .table-after {
+    gap: 8px;
+  }
+
+  .table-before p,
+  .table-after p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 620px) {
+  .impact-table {
+    gap: 16px;
+  }
+
+  .table-header-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 16px;
+    font-size: 0.85rem;
+  }
+
+  .comparison-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .table-label {
+    font-size: 0.9rem;
+  }
+
+  .table-before,
+  .table-after {
+    gap: 8px;
+  }
+
+  .table-before p,
+  .table-after p {
+    font-size: 0.85rem;
+  }
+
+  .status-badge {
+    min-width: 24px;
+    height: 24px;
+    font-size: 1rem;
+  }
+}

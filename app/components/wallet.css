@@ -1,0 +1,168 @@
+.wallet-feature {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 32px 28px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.wallet-showcase {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 48px;
+  margin-bottom: 56px;
+}
+
+.wallet-showcase .section-header {
+  margin-bottom: 0;
+}
+
+.wallet-visual {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: #ffffff;
+  box-shadow: 0 30px 70px var(--shadow);
+}
+
+.wallet-visual-scene {
+  object-fit: cover;
+  /* The asset fades to white on its left, which `cover` crops out here — the
+     right side holds the office itself. */
+  object-position: right center;
+}
+
+.wallet-visual-person {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: auto;
+  height: 94%;
+  max-width: none;
+  transform: translateX(-50%);
+  object-fit: contain;
+  object-position: bottom;
+}
+
+.wallet-features-full {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.wallet-features-full .wallet-feature {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 36px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.wallet-features-full .wallet-feature::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.wallet-features-full .wallet-feature:hover {
+  border-color: var(--primary);
+  box-shadow: 0 24px 60px rgba(90, 0, 227, 0.14);
+  transform: translateY(-6px);
+}
+
+.wallet-features-full .wallet-feature:hover::before {
+  transform: scaleX(1);
+}
+
+.feature-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 18px;
+  background: linear-gradient(
+    135deg,
+    rgba(90, 0, 227, 0.12),
+    rgba(139, 92, 246, 0.12)
+  );
+  border-radius: 16px;
+  font-size: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.wallet-features-full .wallet-feature strong {
+  display: block;
+  margin: 0 0 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--primary);
+  position: relative;
+  z-index: 1;
+}
+
+.wallet-features-full .wallet-feature p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 900px) {
+  .wallet-showcase {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-bottom: 40px;
+  }
+
+  .wallet-features-full {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* Stacked, the 4:3 panel would be as tall as a tablet viewport is wide, so
+     cap it and let the width span the container instead of following the ratio. */
+  .wallet-visual {
+    width: 100%;
+    max-height: 420px;
+  }
+}
+
+@media (max-width: 620px) {
+  .wallet-features-full {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .wallet-feature {
+    padding: 24px 20px;
+  }
+
+  .wallet-feature strong {
+    font-size: 1rem;
+  }
+
+  .wallet-feature p {
+    font-size: 0.9rem;
+  }
+}
