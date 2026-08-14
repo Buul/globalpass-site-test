@@ -3,12 +3,16 @@ import "./integrations.css";
 
 export default function Integrations() {
   return (
-    <section id="integracoes" className="section">
+    <section
+      id="integracoes"
+      className="section"
+      aria-labelledby="integracoes-title"
+    >
       <div className="container section-header">
         <span className="eyebrow eyebrow-dark">
           {content.integrations.eyebrow}
         </span>
-        <h2>{content.integrations.title}</h2>
+        <h2 id="integracoes-title">{content.integrations.title}</h2>
         <p>{content.integrations.description}</p>
       </div>
 

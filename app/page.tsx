@@ -9,12 +9,13 @@ import Platform from "./components/platform";
 import UseCases from "./components/use-cases";
 import Wallet from "./components/wallet";
 import Why from "./components/why";
+import { content } from "./content";
 
 export default function Home() {
   return (
     <div className="site-shell">
       <Header />
-      <main>
+      <main id="conteudo" aria-label={content.a11y.main}>
         <Hero />
         <Journey />
         <Platform />

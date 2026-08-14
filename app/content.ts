@@ -4,9 +4,25 @@ const whatsappMessage =
 
 export const content = {
   meta: {
-    title: "GlobalPass | Site Institucional",
+    title: "GlobalPass | Credencial digital para controle de acesso físico",
     description:
-      "Site institucional moderno para empresa de estratégia, branding e tecnologia.",
+      "Plataforma de credenciamento inteligente com validação de identidade, biometria e credencial digital. Segurança, conformidade e eficiência em todo o ciclo de acesso.",
+    keywords: [
+      "GlobalPass",
+      "credencial digital",
+      "controle de acesso físico",
+      "KYC digital",
+      "HID Mobile Access",
+      "gestão de identidade e acessos",
+      "QR Code dinâmico",
+      "Mobile Pass",
+    ],
+    ogAlt: "GlobalPass — credencial digital para acesso físico",
+  },
+
+  a11y: {
+    skipToContent: "Ir para o conteúdo",
+    main: "Conteúdo principal",
   },
 
   brand: {
@@ -263,6 +279,7 @@ export const content = {
     description:
       "Convite antecipado, autocadastro e credencial digital eliminam as tarefas repetitivas concentradas antes do acesso, reduzindo custos operacionais e abrindo espaço para redimensionar a equipe.",
     table: {
+      caption: "Comparação entre o processo atual de acesso e o processo com Global Pass",
       process: "Processo",
       before: "Processo Atual",
       after: "Com Global Pass",

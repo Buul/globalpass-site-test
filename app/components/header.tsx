@@ -5,8 +5,12 @@ import "./header.css";
 export default function Header() {
   return (
     <header className="topbar">
+      <a href="#conteudo" className="skip-link">
+        {content.a11y.skipToContent}
+      </a>
+
       <div className="container nav-wrap">
-        <div className="brand" aria-label={content.brand.homeAriaLabel}>
+        <a href="/" className="brand">
           <Image
             src="/logo.svg"
             alt={content.brand.name}
@@ -14,7 +18,7 @@ export default function Header() {
             height={30}
             priority
           />
-        </div>
+        </a>
 
         <nav className="main-nav" aria-label={content.nav.ariaLabel}>
           {content.nav.items.map((item) => (

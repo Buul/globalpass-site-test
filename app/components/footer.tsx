@@ -42,14 +42,14 @@ export default function Footer() {
     <footer id="contato" className="footer">
       <div className="container footer-wrap">
         <div>
-          <div className="brand brand-footer">
+          <a href="/" className="brand brand-footer">
             <Image
               src="/logo.svg"
               alt={content.brand.name}
               width={186}
               height={30}
             />
-          </div>
+          </a>
           <p>{content.footer.tagline}</p>
 
           <address className="footer-contacts">

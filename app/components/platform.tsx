@@ -4,10 +4,14 @@ import "./platform.css";
 
 export default function Platform() {
   return (
-    <section id="plataforma" className="section section-alt">
+    <section
+      id="plataforma"
+      className="section section-alt"
+      aria-labelledby="plataforma-title"
+    >
       <div className="container section-header">
         <span className="eyebrow eyebrow-dark">{content.platform.eyebrow}</span>
-        <h2>{withBreaks(content.platform.title)}</h2>
+        <h2 id="plataforma-title">{withBreaks(content.platform.title)}</h2>
         <p>{content.platform.description}</p>
       </div>
 

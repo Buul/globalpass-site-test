@@ -30,6 +30,22 @@
   color: var(--primary);
 }
 
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -120px;
+  z-index: 100;
+  padding: 0.7rem 1.2rem;
+  border-radius: 999px;
+  background: var(--primary);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
 @media (max-width: 900px) {
   .main-nav {
     display: none;

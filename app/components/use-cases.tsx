@@ -4,10 +4,14 @@ import "./use-cases.css";
 
 export default function UseCases() {
   return (
-    <section id="casos" className="section section-alt">
+    <section
+      id="casos"
+      className="section section-alt"
+      aria-labelledby="casos-title"
+    >
       <div className="container section-header">
         <span className="eyebrow eyebrow-dark">{content.useCases.eyebrow}</span>
-        <h2>{withBreaks(content.useCases.title)}</h2>
+        <h2 id="casos-title">{withBreaks(content.useCases.title)}</h2>
         <p>{content.useCases.description}</p>
       </div>
 

@@ -1,10 +1,19 @@
 .impact-table {
-  display: grid;
-  gap: 24px;
+  width: 100%;
+  border-collapse: collapse;
   background: white;
   border: 1px solid var(--line);
   border-radius: 24px;
   overflow: hidden;
+}
+
+.impact-table thead {
+  display: block;
+}
+
+.impact-table tbody {
+  display: flex;
+  flex-direction: column;
 }
 
 .table-header-row {
@@ -25,6 +34,10 @@
 .table-after-header {
   display: flex;
   align-items: center;
+  color: inherit;
+  font: inherit;
+  font-weight: 700;
+  text-align: left;
 }
 
 .table-body {
@@ -55,6 +68,7 @@
   color: var(--foreground);
   font-size: 1rem;
   letter-spacing: -0.02em;
+  text-align: left;
 }
 
 .table-before,
@@ -86,7 +100,9 @@
 }
 
 .table-before p,
-.table-after p {
+.table-after p,
+.table-before span:not(.status-badge),
+.table-after span:not(.status-badge) {
   margin: 0;
   color: var(--muted);
   font-size: 0.95rem;
@@ -117,16 +133,14 @@
   }
 
   .table-before p,
-  .table-after p {
+  .table-after p,
+  .table-before span:not(.status-badge),
+  .table-after span:not(.status-badge) {
     font-size: 0.9rem;
   }
 }
 
 @media (max-width: 620px) {
-  .impact-table {
-    gap: 16px;
-  }
-
   .table-header-row {
     grid-template-columns: 1fr;
     gap: 12px;
@@ -150,7 +164,9 @@
   }
 
   .table-before p,
-  .table-after p {
+  .table-after p,
+  .table-before span:not(.status-badge),
+  .table-after span:not(.status-badge) {
     font-size: 0.85rem;
   }
 

@@ -3,10 +3,14 @@ import "./why.css";
 
 export default function Why() {
   return (
-    <section id="beneficios" className="section section-alt">
+    <section
+      id="beneficios"
+      className="section section-alt"
+      aria-labelledby="beneficios-title"
+    >
       <div className="container section-header">
         <span className="eyebrow eyebrow-dark">{content.why.eyebrow}</span>
-        <h2>{content.why.title}</h2>
+        <h2 id="beneficios-title">{content.why.title}</h2>
       </div>
 
       <div className="container benefits-grid">

@@ -4,11 +4,11 @@ import "./wallet.css";
 
 export default function Wallet() {
   return (
-    <section className="section">
+    <section className="section" id="wallet" aria-labelledby="wallet-title">
       <div className="container wallet-showcase">
         <div className="section-header">
           <span className="eyebrow eyebrow-dark">{content.wallet.eyebrow}</span>
-          <h2>{content.wallet.title}</h2>
+          <h2 id="wallet-title">{content.wallet.title}</h2>
           <p>{content.wallet.description}</p>
         </div>
 
@@ -16,6 +16,7 @@ export default function Wallet() {
           <Image
             src="/wallet-office.jpg"
             alt=""
+            aria-hidden="true"
             className="wallet-visual-scene"
             fill
             sizes="(max-width: 900px) 100vw, 50vw"
@@ -35,7 +36,7 @@ export default function Wallet() {
         {content.wallet.features.map((feature) => (
           <div key={feature.title} className="wallet-feature">
             <div className="feature-icon">{feature.icon}</div>
-            <strong>{feature.title}</strong>
+            <h3>{feature.title}</h3>
             <p>{feature.description}</p>
           </div>
         ))}

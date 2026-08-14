@@ -3,10 +3,10 @@ import "./journey.css";
 
 export default function Journey() {
   return (
-    <section id="jornada" className="section">
+    <section id="jornada" className="section" aria-labelledby="jornada-title">
       <div className="container section-header">
         <span className="eyebrow eyebrow-dark">{content.journey.eyebrow}</span>
-        <h2>{content.journey.title}</h2>
+        <h2 id="jornada-title">{content.journey.title}</h2>
         <p>{content.journey.description}</p>
       </div>
 
