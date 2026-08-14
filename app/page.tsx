@@ -8,6 +8,70 @@ const navItems = [
   { label: "Contato", href: "#contato" },
 ];
 
+/* Single source of truth: the number is rendered for humans, dialled via tel:
+   and passed to wa.me, which requires country code and digits only. */
+const phoneDigits = "5511986550492";
+
+const whatsappUrl = `https://wa.me/${phoneDigits}?text=${encodeURIComponent(
+  "Olá! Gostaria de agendar uma demonstração da Global Pass.",
+)}`;
+
+const contacts = [
+  {
+    icon: "mail" as const,
+    label: "E-mail",
+    value: "everton.mota@globalpass.app",
+    href: "mailto:everton.mota@globalpass.app",
+  },
+  {
+    icon: "instagram" as const,
+    label: "Instagram",
+    value: "@globalpass",
+    href: "https://www.instagram.com/globalpass",
+    external: true,
+  },
+  {
+    icon: "phone" as const,
+    label: "Telefone",
+    value: "(11) 98655-0492",
+    href: `tel:+${phoneDigits}`,
+  },
+];
+
+function ContactIcon({ name }: { name: "mail" | "instagram" | "phone" }) {
+  return (
+    <svg
+      className="footer-contact-icon"
+      viewBox="0 0 24 24"
+      width="18"
+      height="18"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      {name === "mail" && (
+        <>
+          <rect x="2.5" y="4.5" width="19" height="15" rx="2.5" />
+          <path d="m3.6 6.6 8.4 5.9 8.4-5.9" />
+        </>
+      )}
+      {name === "instagram" && (
+        <>
+          <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" />
+          <circle cx="12" cy="12" r="4.2" />
+          <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none" />
+        </>
+      )}
+      {name === "phone" && (
+        <path d="M6.6 3.5h3l1.5 3.7-1.9 1.4a10.5 10.5 0 0 0 5.3 5.3l1.4-1.9 3.7 1.5v3a1.5 1.5 0 0 1-1.6 1.5A15.5 15.5 0 0 1 5.1 5.1 1.5 1.5 0 0 1 6.6 3.5Z" />
+      )}
+    </svg>
+  );
+}
+
 const userJourneySteps = [
   {
     step: "01",
@@ -193,7 +257,12 @@ export default function Home() {
               </p>
 
               <div className="cta-row">
-                <a href="#contato" className="button button-primary">
+                <a
+                  href={whatsappUrl}
+                  className="button button-primary"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Agendar demonstração
                 </a>
                 <a href="#jornada" className="button button-secondary">
@@ -553,14 +622,36 @@ export default function Home() {
               <Image src="/logo.svg" alt="GlobalPass" width={186} height={30} />
             </div>
             <p>Credencial Digital para Acesso Físico</p>
+
+            <address className="footer-contacts">
+              {contacts.map((contact) => (
+                <a
+                  key={contact.href}
+                  href={contact.href}
+                  className="footer-contact"
+                  /* The icon is decorative, so the label it replaces has to
+                     reach assistive tech through the accessible name. */
+                  aria-label={`${contact.label}: ${contact.value}`}
+                  {...(contact.external
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
+                >
+                  <ContactIcon name={contact.icon} />
+                  <span>{contact.value}</span>
+                </a>
+              ))}
+            </address>
+
             <CookiePreferencesButton />
           </div>
 
           <div className="footer-cta">
             <p>Veja a Global Pass na sua operação.</p>
             <a
-              //href="mailto:contato@globalpass.com"
+              href={whatsappUrl}
               className="button button-primary"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Agendar demonstração
             </a>
