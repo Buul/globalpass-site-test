@@ -1,10 +1,23 @@
+/* Layout values live as custom properties on the table so the breakpoints below
+   only have to restate the numbers that change, not the rules that use them. */
 .impact-table {
+  --table-cols: 1.2fr 1fr 1fr;
+  --table-row-padding: 28px 24px;
+  --table-header-gap: 0;
+  --table-header-size: 0.95rem;
+  --table-row-gap: 0;
+  --table-label-size: 1rem;
+  --table-cell-gap: 12px;
+  --table-text-size: 0.95rem;
+  --status-badge-size: 28px;
+  --status-badge-text: 1.1rem;
+
   width: 100%;
-  border-collapse: collapse;
-  background: white;
-  border: 1px solid var(--line);
-  border-radius: 24px;
   overflow: hidden;
+  border: 1px solid var(--line);
+  border-collapse: collapse;
+  border-radius: 24px;
+  background: var(--card);
 }
 
 .impact-table thead {
@@ -16,22 +29,24 @@
   flex-direction: column;
 }
 
-.table-header-row {
+.table-header-row,
+.comparison-row {
   display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr;
-  gap: 0;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-  padding: 28px 24px;
-  color: white;
-  font-weight: 700;
-  font-size: 0.95rem;
-  letter-spacing: -0.02em;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  grid-template-columns: var(--table-cols);
+  padding: var(--table-row-padding);
 }
 
-.table-label-header,
-.table-before-header,
-.table-after-header {
+.table-header-row {
+  gap: var(--table-header-gap);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  background: var(--gradient-brand);
+  color: white;
+  font-size: var(--table-header-size);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.table-heading {
   display: flex;
   align-items: center;
   color: inherit;
@@ -40,18 +55,10 @@
   text-align: left;
 }
 
-.table-body {
-  display: flex;
-  flex-direction: column;
-}
-
 .comparison-row {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr;
-  gap: 0;
-  padding: 28px 24px;
-  border-bottom: 1px solid var(--line);
+  gap: var(--table-row-gap);
   align-items: center;
+  border-bottom: 1px solid var(--line);
   transition: all 0.3s ease;
 }
 
@@ -60,13 +67,13 @@
 }
 
 .comparison-row:hover {
-  background: rgba(90, 0, 227, 0.04);
+  background: rgba(var(--primary-rgb), 0.04);
 }
 
 .table-label {
-  font-weight: 600;
   color: var(--foreground);
-  font-size: 1rem;
+  font-size: var(--table-label-size);
+  font-weight: 600;
   letter-spacing: -0.02em;
   text-align: left;
 }
@@ -75,19 +82,19 @@
 .table-after {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
+  gap: var(--table-cell-gap);
 }
 
 .status-badge {
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  min-width: 28px;
-  height: 28px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  flex-shrink: 0;
+  min-width: var(--status-badge-size);
+  height: var(--status-badge-size);
   margin-top: 2px;
+  font-size: var(--status-badge-text);
+  font-weight: bold;
 }
 
 .status-before {
@@ -99,80 +106,34 @@
   font-weight: 800;
 }
 
-.table-before p,
-.table-after p,
-.table-before span:not(.status-badge),
-.table-after span:not(.status-badge) {
-  margin: 0;
+.status-text {
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: var(--table-text-size);
   line-height: 1.5;
 }
 
 @media (max-width: 900px) {
-  .table-header-row {
-    grid-template-columns: 1fr;
-    gap: 8px;
-    padding: 20px 16px;
-    font-size: 0.9rem;
-  }
-
-  .comparison-row {
-    grid-template-columns: 1fr;
-    gap: 16px;
-    padding: 20px 16px;
-  }
-
-  .table-label {
-    font-size: 0.95rem;
-  }
-
-  .table-before,
-  .table-after {
-    gap: 8px;
-  }
-
-  .table-before p,
-  .table-after p,
-  .table-before span:not(.status-badge),
-  .table-after span:not(.status-badge) {
-    font-size: 0.9rem;
+  .impact-table {
+    --table-cols: 1fr;
+    --table-row-padding: 20px 16px;
+    --table-header-gap: 8px;
+    --table-header-size: 0.9rem;
+    --table-row-gap: 16px;
+    --table-label-size: 0.95rem;
+    --table-cell-gap: 8px;
+    --table-text-size: 0.9rem;
   }
 }
 
 @media (max-width: 620px) {
-  .table-header-row {
-    grid-template-columns: 1fr;
-    gap: 12px;
-    padding: 16px;
-    font-size: 0.85rem;
-  }
-
-  .comparison-row {
-    grid-template-columns: 1fr;
-    gap: 12px;
-    padding: 16px;
-  }
-
-  .table-label {
-    font-size: 0.9rem;
-  }
-
-  .table-before,
-  .table-after {
-    gap: 8px;
-  }
-
-  .table-before p,
-  .table-after p,
-  .table-before span:not(.status-badge),
-  .table-after span:not(.status-badge) {
-    font-size: 0.85rem;
-  }
-
-  .status-badge {
-    min-width: 24px;
-    height: 24px;
-    font-size: 1rem;
+  .impact-table {
+    --table-row-padding: 16px;
+    --table-header-gap: 12px;
+    --table-header-size: 0.85rem;
+    --table-row-gap: 12px;
+    --table-label-size: 0.9rem;
+    --table-text-size: 0.85rem;
+    --status-badge-size: 24px;
+    --status-badge-text: 1rem;
   }
 }

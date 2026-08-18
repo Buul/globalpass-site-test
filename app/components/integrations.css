@@ -1,74 +1,33 @@
 .integrations-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 20px;
+  --grid-cols: 4;
+  --grid-gap: 20px;
+  --grid-gap-sm: 12px;
 }
 
 .integration-badge {
-  background: white;
-  border: 2px solid var(--line);
-  border-radius: 20px;
-  padding: 32px 24px;
-  text-align: center;
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  color: var(--foreground);
-  transition: all 0.3s ease;
-  position: relative;
-  /* Needed so the negative z-index overlay stays inside this card instead of
-     falling behind its own background. */
-  isolation: isolate;
-  overflow: hidden;
-  display: flex;
+  --card-padding: 32px 24px;
+  --card-border: 2px;
+  --card-shadow: 0 16px 40px rgba(var(--primary-rgb), 0.15);
+  --card-wash-angle: 135deg;
+
   align-items: center;
   justify-content: center;
   min-height: 100px;
-}
-
-.integration-badge::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(90, 0, 227, 0.08),
-    rgba(139, 92, 246, 0.08)
-  );
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: -1;
+  color: var(--foreground);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  text-align: center;
 }
 
 .integration-badge:hover {
-  border-color: var(--primary);
-  box-shadow: 0 16px 40px rgba(90, 0, 227, 0.15);
-  transform: translateY(-4px);
   color: var(--primary);
   font-weight: 700;
 }
 
-.integration-badge:hover::before {
-  opacity: 1;
-}
-
-@media (max-width: 900px) {
-  .integrations-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
 @media (max-width: 620px) {
-  .integrations-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
   .integration-badge {
-    padding: 24px 16px;
+    --card-padding: 24px 16px;
     min-height: 80px;
     font-size: 0.95rem;
   }

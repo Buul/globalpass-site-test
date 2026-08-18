@@ -1,6 +1,7 @@
-import Image from "next/image";
 import { content } from "../content";
+import BrandLink from "./brand-link";
 import CookiePreferencesButton from "./cookie-preferences-button";
+import WhatsAppCta from "./whatsapp-cta";
 import "./footer.css";
 
 function ContactIcon({ name }: { name: "mail" | "instagram" | "phone" }) {
@@ -42,14 +43,7 @@ export default function Footer() {
     <footer id="contato" className="footer">
       <div className="container footer-wrap">
         <div>
-          <a href="/" className="brand brand-footer">
-            <Image
-              src="/logo.svg"
-              alt={content.brand.name}
-              width={186}
-              height={30}
-            />
-          </a>
+          <BrandLink className="brand brand-footer" />
           <p>{content.footer.tagline}</p>
 
           <address className="footer-contacts">
@@ -74,14 +68,7 @@ export default function Footer() {
 
         <div className="footer-cta">
           <p>{content.footer.cta}</p>
-          <a
-            href={content.contact.whatsappUrl}
-            className="button button-primary"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {content.footer.ctaButton}
-          </a>
+          <WhatsAppCta>{content.footer.ctaButton}</WhatsAppCta>
         </div>
       </div>
     </footer>

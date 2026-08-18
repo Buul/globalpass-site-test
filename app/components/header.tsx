@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { content } from "../content";
+import BrandLink from "./brand-link";
 import "./header.css";
 
 export default function Header() {
@@ -10,15 +10,7 @@ export default function Header() {
       </a>
 
       <div className="container nav-wrap">
-        <a href="/" className="brand">
-          <Image
-            src="/logo.svg"
-            alt={content.brand.name}
-            width={186}
-            height={30}
-            priority
-          />
-        </a>
+        <BrandLink priority />
 
         <nav className="main-nav" aria-label={content.nav.ariaLabel}>
           {content.nav.items.map((item) => (

@@ -1,16 +1,18 @@
 import Image from "next/image";
 import { content } from "../content";
+import CardGrid from "./card-grid";
+import Section, { SectionHeader } from "./section";
 import "./wallet.css";
 
 export default function Wallet() {
   return (
-    <section className="section" id="wallet" aria-labelledby="wallet-title">
+    <Section id="wallet">
       <div className="container wallet-showcase">
-        <div className="section-header">
-          <span className="eyebrow eyebrow-dark">{content.wallet.eyebrow}</span>
-          <h2 id="wallet-title">{content.wallet.title}</h2>
-          <p>{content.wallet.description}</p>
-        </div>
+        <SectionHeader
+          id="wallet"
+          heading={content.wallet}
+          className="section-header"
+        />
 
         <div className="wallet-visual">
           <Image
@@ -32,15 +34,14 @@ export default function Wallet() {
         </div>
       </div>
 
-      <div className="container wallet-features-full">
-        {content.wallet.features.map((feature) => (
-          <div key={feature.title} className="wallet-feature">
-            <div className="feature-icon">{feature.icon}</div>
-            <h3>{feature.title}</h3>
-            <p>{feature.description}</p>
-          </div>
-        ))}
-      </div>
-    </section>
+      <CardGrid
+        className="wallet-features-full"
+        cardClassName="wallet-feature card-accent"
+        items={content.wallet.features}
+        renderMedia={(feature) => (
+          <div className="feature-icon">{feature.icon}</div>
+        )}
+      />
+    </Section>
   );
 }

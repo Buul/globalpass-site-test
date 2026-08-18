@@ -1,28 +1,16 @@
 import { content } from "../content";
-import { withBreaks } from "./with-breaks";
+import CardGrid from "./card-grid";
+import Section from "./section";
 import "./platform.css";
 
 export default function Platform() {
   return (
-    <section
-      id="plataforma"
-      className="section section-alt"
-      aria-labelledby="plataforma-title"
-    >
-      <div className="container section-header">
-        <span className="eyebrow eyebrow-dark">{content.platform.eyebrow}</span>
-        <h2 id="plataforma-title">{withBreaks(content.platform.title)}</h2>
-        <p>{content.platform.description}</p>
-      </div>
-
-      <div className="container features-grid">
-        {content.platform.features.map((feature) => (
-          <article key={feature.title} className="feature-card">
-            <h3>{feature.title}</h3>
-            <p>{feature.description}</p>
-          </article>
-        ))}
-      </div>
-    </section>
+    <Section id="plataforma" alt heading={content.platform}>
+      <CardGrid
+        className="features-grid"
+        cardClassName="feature-card card-accent"
+        items={content.platform.features}
+      />
+    </Section>
   );
 }

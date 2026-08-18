@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { content } from "../content";
+import WhatsAppCta from "./whatsapp-cta";
 import "./hero.css";
 
 export default function Hero() {
@@ -23,14 +24,7 @@ export default function Hero() {
           <p>{content.hero.description}</p>
 
           <div className="cta-row">
-            <a
-              href={content.contact.whatsappUrl}
-              className="button button-primary"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {content.hero.ctaPrimary}
-            </a>
+            <WhatsAppCta>{content.hero.ctaPrimary}</WhatsAppCta>
             <a href="#jornada" className="button button-secondary">
               {content.hero.ctaSecondary}
             </a>

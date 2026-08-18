@@ -1,28 +1,17 @@
 import { content } from "../content";
+import Section from "./section";
 import "./integrations.css";
 
 export default function Integrations() {
   return (
-    <section
-      id="integracoes"
-      className="section"
-      aria-labelledby="integracoes-title"
-    >
-      <div className="container section-header">
-        <span className="eyebrow eyebrow-dark">
-          {content.integrations.eyebrow}
-        </span>
-        <h2 id="integracoes-title">{content.integrations.title}</h2>
-        <p>{content.integrations.description}</p>
-      </div>
-
-      <div className="container integrations-grid">
+    <Section id="integracoes" heading={content.integrations}>
+      <div className="container card-grid integrations-grid">
         {content.integrations.items.map((integration) => (
-          <div key={integration} className="integration-badge">
-            {integration}
+          <div key={integration} className="card integration-badge card-wash">
+            <span>{integration}</span>
           </div>
         ))}
       </div>
-    </section>
+    </Section>
   );
 }

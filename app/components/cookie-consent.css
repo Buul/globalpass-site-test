@@ -72,7 +72,7 @@
 }
 
 .cookie-banner .button-primary {
-  box-shadow: 0 12px 24px rgba(90, 0, 227, 0.18);
+  box-shadow: 0 12px 24px rgba(var(--primary-rgb), 0.18);
 }
 
 @media (max-width: 760px) {
