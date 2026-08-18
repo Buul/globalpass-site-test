@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { content } from "../content";
-import WhatsAppCta from "./whatsapp-cta";
+import { content } from "../../content";
+import WhatsAppCta from "../../components/whatsapp-cta/whatsapp-cta";
 import "./hero.css";
 
 export default function Hero() {

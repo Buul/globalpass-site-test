@@ -1,4 +1,4 @@
-import { content } from "../content";
+import { content } from "../../content";
 
 /** Keeps the `target`/`rel` pairing in one place for every WhatsApp CTA. */
 export default function WhatsAppCta({ children }: { children: string }) {

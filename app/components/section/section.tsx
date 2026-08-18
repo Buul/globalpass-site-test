@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { withBreaks } from "./with-breaks";
+import { withBreaks } from "../with-breaks/with-breaks";
 
 type SectionHeading = {
   eyebrow: string;

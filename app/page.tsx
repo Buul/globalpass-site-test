@@ -1,14 +1,14 @@
-import Architecture from "./components/architecture";
-import Footer from "./components/footer";
-import Header from "./components/header";
-import Hero from "./components/hero";
-import Impact from "./components/impact";
-import Integrations from "./components/integrations";
-import Journey from "./components/journey";
-import Platform from "./components/platform";
-import UseCases from "./components/use-cases";
-import Wallet from "./components/wallet";
-import Why from "./components/why";
+import Footer from "./components/footer/footer";
+import Header from "./components/header/header";
+import Architecture from "./sections/architecture/architecture";
+import Hero from "./sections/hero/hero";
+import Impact from "./sections/impact/impact";
+import Integrations from "./sections/integrations/integrations";
+import Journey from "./sections/journey/journey";
+import Platform from "./sections/platform/platform";
+import UseCases from "./sections/use-cases/use-cases";
+import Wallet from "./sections/wallet/wallet";
+import Why from "./sections/why/why";
 import { content } from "./content";
 
 export default function Home() {

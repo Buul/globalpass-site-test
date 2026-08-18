@@ -1,7 +1,7 @@
-import { content } from "../content";
-import BrandLink from "./brand-link";
-import CookiePreferencesButton from "./cookie-preferences-button";
-import WhatsAppCta from "./whatsapp-cta";
+import { content } from "../../content";
+import BrandLink from "../brand-link/brand-link";
+import CookiePreferencesButton from "../cookie-preferences-button/cookie-preferences-button";
+import WhatsAppCta from "../whatsapp-cta/whatsapp-cta";
 import "./footer.css";
 
 function ContactIcon({ name }: { name: "mail" | "instagram" | "phone" }) {

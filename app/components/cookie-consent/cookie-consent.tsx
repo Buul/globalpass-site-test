@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { content } from "../content";
+import { content } from "../../content";
 import "./cookie-consent.css";
 
 const STORAGE_KEY = "globalpass:cookie-consent";

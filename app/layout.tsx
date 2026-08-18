@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import CookieConsent from "./components/cookie-consent";
-import JsonLd from "./components/json-ld";
+import CookieConsent from "./components/cookie-consent/cookie-consent";
+import JsonLd from "./components/json-ld/json-ld";
 import { content } from "./content";
 import { siteUrl } from "./site";
 import "./globals.css";

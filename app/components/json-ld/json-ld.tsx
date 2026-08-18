@@ -1,5 +1,5 @@
-import { content } from "../content";
-import { siteUrl } from "../site";
+import { content } from "../../content";
+import { siteUrl } from "../../site";
 
 export default function JsonLd() {
   const organizationId = `${siteUrl}/#organization`;

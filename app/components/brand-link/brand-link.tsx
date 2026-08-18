@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { content } from "../content";
+import { content } from "../../content";
 
 type BrandLinkProps = {
   className?: string;

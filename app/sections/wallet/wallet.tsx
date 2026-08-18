@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { content } from "../content";
-import CardGrid from "./card-grid";
-import Section, { SectionHeader } from "./section";
+import { content } from "../../content";
+import CardGrid from "../../components/card-grid/card-grid";
+import Section, { SectionHeader } from "../../components/section/section";
 import "./wallet.css";
 
 export default function Wallet() {

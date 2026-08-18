@@ -1,5 +1,5 @@
-import { content } from "../content";
-import Section from "./section";
+import { content } from "../../content";
+import Section from "../../components/section/section";
 import "./impact.css";
 
 const { table } = content.impact;

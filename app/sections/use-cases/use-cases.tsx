@@ -1,6 +1,6 @@
-import { content } from "../content";
-import CardGrid from "./card-grid";
-import Section from "./section";
+import { content } from "../../content";
+import CardGrid from "../../components/card-grid/card-grid";
+import Section from "../../components/section/section";
 import "./use-cases.css";
 
 export default function UseCases() {

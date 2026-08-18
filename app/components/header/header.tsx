@@ -1,5 +1,5 @@
-import { content } from "../content";
-import BrandLink from "./brand-link";
+import { content } from "../../content";
+import BrandLink from "../brand-link/brand-link";
 import "./header.css";
 
 export default function Header() {
