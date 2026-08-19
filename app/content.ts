@@ -6,7 +6,7 @@ export const content = {
   meta: {
     title: "GlobalPass | Credencial digital para controle de acesso físico",
     description:
-      "Plataforma de credenciamento inteligente com validação de identidade, biometria e credencial digital. Segurança, conformidade e eficiência em todo o ciclo de acesso.",
+      "O Global Pass simplifica toda gestão de acesso da sua empresa, oferecendo uma jornada segura, inteligente e acolhedora para cada visitante, colaboradores e prestador de serviço.",
     keywords: [
       "GlobalPass",
       "credencial digital",
@@ -73,9 +73,10 @@ export const content = {
     imageAlt:
       "Pessoas acessando o lobby de um edifício corporativo por catracas",
     eyebrow: "Gestão de Identidade e Acessos",
-    title: "Identidade verificada. Acesso liberado.",
+    title:
+      "Gestão de acesso simplificada.\nIntegração completa com a\ninfraestrutura existente.",
     description:
-      "Plataforma de credenciamento inteligente que gestiona a validação de identidade, biometria e documentação, proporcionando segurança, conformidade e eficiência operacional em todo o ciclo de acesso",
+      "O Global Pass simplifica toda gestão de acesso da sua empresa, oferecendo uma jornada segura, inteligente e acolhedora para cada visitante, colaboradores e prestador de serviço.",
     ctaPrimary: "Agendar demonstração",
     ctaSecondary: "Ver a jornada",
   },
@@ -168,9 +169,7 @@ export const content = {
       "Honeywell Pro-Watch",
       "HID Global / OSDP",
       "Controle iD",
-      "Hikvision ACS",
-      "Intelbras",
-      "Dormakaba",
+      "Ronda X (cloud) Senior",
       "API REST aberta",
     ],
   },
@@ -200,42 +199,6 @@ export const content = {
         title: "Multiunidades",
         description:
           "Uma única credencial com permissões específicas por site. O colaborador que transita entre unidades carrega o acesso correto em cada local — sem recadastro, com gestão centralizada.",
-      },
-    ],
-  },
-
-  wallet: {
-    eyebrow: "Global Pass Wallet + HID",
-    title:
-      "Credencial sempre disponível, com acesso liberado sem abrir o aplicativo",
-    description:
-      "A Global Pass Wallet integra-se nativamente ao HID Mobile Access, padrão mundial de credencial digital. O acesso por Bluetooth Low Energy e NFC funciona com o smartphone, com a praticidade de um crachá físico e o controle de uma plataforma SaaS.",
-    imageAlt:
-      "Profissional acessando a credencial digital pelo tablet no escritório",
-    features: [
-      {
-        icon: "📱",
-        title: "Smartphone como crachá",
-        description:
-          "Funciona com o aplicativo em segundo plano. No modo NFC, não depende de bateria do dispositivo",
-      },
-      {
-        icon: "🔐",
-        title: "Revogação instantânea",
-        description:
-          "Bloqueio em tempo real, sem necessidade de recolher crachá",
-      },
-      {
-        icon: "🌍",
-        title: "Padrão HID Global",
-        description:
-          "Integração nativa com HID Mobile Access, reconhecido mundialmente para credenciais digitais",
-      },
-      {
-        icon: "📡",
-        title: "Múltiplos protocolos",
-        description:
-          "Suporta BLE, NFC e QR Code dinâmico — adaptável a qualquer infraestrutura",
       },
     ],
   },

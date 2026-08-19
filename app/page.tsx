@@ -7,7 +7,6 @@ import Integrations from "./sections/integrations/integrations";
 import Journey from "./sections/journey/journey";
 import Platform from "./sections/platform/platform";
 import UseCases from "./sections/use-cases/use-cases";
-import Wallet from "./sections/wallet/wallet";
 import Why from "./sections/why/why";
 import { content } from "./content";
 
@@ -21,7 +20,6 @@ export default function Home() {
         <Platform />
         <Integrations />
         <UseCases />
-        <Wallet />
         <Why />
         <Impact />
         <Architecture />

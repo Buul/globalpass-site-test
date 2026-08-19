@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { content } from "../../content";
 import WhatsAppCta from "../../components/whatsapp-cta/whatsapp-cta";
+import { withBreaks } from "../../components/with-breaks/with-breaks";
 import "./hero.css";
 
 export default function Hero() {
@@ -20,7 +21,7 @@ export default function Hero() {
       <div className="container hero-inner">
         <div className="hero-copy">
           <span className="hero-eyebrow">{content.hero.eyebrow}</span>
-          <h1 id="hero-title">{content.hero.title}</h1>
+          <h1 id="hero-title">{withBreaks(content.hero.title)}</h1>
           <p>{content.hero.description}</p>
 
           <div className="cta-row">

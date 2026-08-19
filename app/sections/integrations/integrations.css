@@ -1,5 +1,5 @@
 .integrations-grid {
-  --grid-cols: 4;
+  --grid-cols: 3;
   --grid-gap: 20px;
   --grid-gap-sm: 12px;
 }
