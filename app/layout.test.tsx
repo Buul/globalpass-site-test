@@ -10,7 +10,7 @@ describe("RootLayout", () => {
     expect(viewport.themeColor).toBe("#5A00E3");
 
     render(
-      <RootLayout>
+      <RootLayout params={Promise.resolve({})}>
         <p>página</p>
       </RootLayout>,
     );
