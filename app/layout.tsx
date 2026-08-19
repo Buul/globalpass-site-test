@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import CookieConsent from "./components/cookie-consent/cookie-consent";
 import JsonLd from "./components/json-ld/json-ld";
 import { content } from "./content";
-import { siteUrl } from "./site";
+import { isProduction, siteUrl } from "./site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -32,17 +32,26 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
-  },
+  robots: isProduction
+    ? {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          "max-image-preview": "large",
+          "max-snippet": -1,
+          "max-video-preview": -1,
+        },
+      }
+    : {
+        index: false,
+        follow: false,
+        googleBot: {
+          index: false,
+          follow: false,
+        },
+      },
   openGraph: {
     type: "website",
     locale: "pt_BR",

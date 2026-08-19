@@ -1,8 +1,9 @@
+import Link from "next/link";
 import { content } from "../../content";
+import { container } from "../../lib/ui";
 import BrandLink from "../brand-link/brand-link";
 import CookiePreferencesButton from "../cookie-preferences-button/cookie-preferences-button";
 import WhatsAppCta from "../whatsapp-cta/whatsapp-cta";
-import { container } from "../../lib/ui";
 
 function ContactIcon({ name }: { name: "mail" | "instagram" | "phone" }) {
   return (
@@ -68,6 +69,12 @@ export default function Footer() {
           </address>
 
           <CookiePreferencesButton />
+          <Link
+            href="/privacidade"
+            className="mt-3 block text-[0.85rem] text-white/70 underline underline-offset-[3px] transition-colors duration-200 hover:text-white"
+          >
+            {content.footer.privacy}
+          </Link>
         </div>
 
         <div className="flex flex-col items-end gap-3.5 text-right max-md:items-start max-md:text-left">

@@ -1,7 +1,16 @@
 import type { MetadataRoute } from "next";
-import { siteUrl } from "./site";
+import { isProduction, siteUrl } from "./site";
 
 export default function robots(): MetadataRoute.Robots {
+  if (!isProduction) {
+    return {
+      rules: {
+        userAgent: "*",
+        disallow: "/",
+      },
+    };
+  }
+
   return {
     rules: {
       userAgent: "*",

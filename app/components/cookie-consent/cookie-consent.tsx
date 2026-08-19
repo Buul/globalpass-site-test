@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import { content } from "../../content";
 import { cn } from "../../lib/cn";
@@ -62,6 +63,7 @@ export default function CookieConsent() {
     <div
       className="fixed inset-x-0 bottom-0 z-50 px-4 pb-4"
       role="dialog"
+      aria-modal="true"
       aria-labelledby="cookie-banner-title"
       aria-describedby="cookie-banner-description"
     >
@@ -84,7 +86,14 @@ export default function CookieConsent() {
             id="cookie-banner-description"
             className="m-0 max-w-[78ch] text-[0.88rem] leading-[1.6] text-muted"
           >
-            {content.cookies.description}
+            {content.cookies.description}{" "}
+            <Link
+              href="/privacidade"
+              className="font-medium text-primary underline underline-offset-[3px]"
+            >
+              {content.cookies.privacy}
+            </Link>
+            .
           </p>
         </div>
 

@@ -332,14 +332,45 @@ export const content = {
     tagline: "Credencial Digital para Acesso Físico",
     cta: "Veja a Global Pass na sua operação.",
     ctaButton: "Agendar demonstração",
+    privacy: "Política de privacidade",
   },
 
   cookies: {
     title: "Cookies neste site",
     description:
-      "Usamos cookies necessários para o funcionamento do site e, com o seu consentimento, cookies de análise para entender o uso das páginas. Você pode rever sua escolha no rodapé.",
+      "Este site grava no seu navegador apenas a sua escolha sobre este aviso, para não perguntar de novo. Não usamos cookies de análise nem pixels de terceiros neste momento. Você pode rever a escolha no rodapé.",
     essential: "Apenas necessários",
-    acceptAll: "Aceitar todos",
+    acceptAll: "Ok, entendi",
     preferences: "Preferências de cookies",
+    privacy: "Ler a política de privacidade",
+  },
+
+  privacy: {
+    title: "Política de privacidade",
+    updated: "Atualizada em 19 de agosto de 2026.",
+    intro:
+      "Esta página descreve como a GlobalPass trata dados pessoais no site institucional globalpass.app. É um texto mínimo de transparência (LGPD). Não substitui contrato de cliente da plataforma Global Pass.",
+    sections: [
+      {
+        title: "Quem somos",
+        body: "O site é operado pela GlobalPass. Para questões de privacidade ou segurança, use o e-mail indicado no rodapé.",
+      },
+      {
+        title: "Dados que coletamos",
+        body: "O site não exige cadastro. Se você nos escreve por e-mail, telefone ou WhatsApp, tratamos os dados que você envia para responder o contato. Não rodamos, neste momento, ferramentas de análise de terceiros.",
+      },
+      {
+        title: "Armazenamento no navegador",
+        body: "Usamos o armazenamento local do navegador somente para lembrar se você já respondeu ao aviso de cookies. Isso não identifica você junto a um serviço nosso em nuvem.",
+      },
+      {
+        title: "Compartilhamento",
+        body: "Links para WhatsApp e Instagram levam a serviços de terceiros, com as políticas deles. Não vendemos dados pessoais.",
+      },
+      {
+        title: "Seus direitos",
+        body: "Você pode pedir acesso, correção ou exclusão dos dados que tivermos a seu respeito, e revogar a escolha do aviso de cookies pelo link no rodapé. Para exercer direitos LGPD, contate o e-mail do rodapé.",
+      },
+    ],
   },
 } as const;
