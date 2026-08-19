@@ -2,7 +2,8 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { content } from "../../content";
-import "./cookie-consent.css";
+import { cn } from "../../lib/cn";
+import { buttonPrimary, buttonSecondary } from "../../lib/ui";
 
 const STORAGE_KEY = "globalpass:cookie-consent";
 
@@ -21,7 +22,6 @@ function readStoredStatus(): ConsentStatus | null {
 
     return status === "all" || status === "essential" ? status : null;
   } catch {
-    // Malformed value or storage blocked: treat it as no decision yet.
     return null;
   }
 }
@@ -30,8 +30,6 @@ export default function CookieConsent() {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    // Reading storage while rendering would desync server and client markup, so
-    // the decision is only checked after mount.
     if (readStoredStatus() === null) {
       setIsOpen(true);
     }
@@ -49,8 +47,7 @@ export default function CookieConsent() {
         JSON.stringify({ status, decidedAt: new Date().toISOString() }),
       );
     } catch {
-      // Private browsing can reject writes; closing the banner still respects
-      // the click, it just will not be remembered on the next visit.
+      // Private browsing can reject writes.
     }
 
     setIsOpen(false);
@@ -58,30 +55,58 @@ export default function CookieConsent() {
 
   if (!isOpen) return null;
 
+  const actionButton =
+    "px-[1.4rem] py-[0.7rem] text-[0.9rem] font-medium whitespace-nowrap max-[760px]:w-full";
+
   return (
     <div
-      className="cookie-banner"
+      className="fixed inset-x-0 bottom-0 z-50 px-4 pb-4"
       role="dialog"
       aria-labelledby="cookie-banner-title"
       aria-describedby="cookie-banner-description"
     >
-      <div className="cookie-banner-card">
-        <div className="cookie-banner-text">
-          <strong id="cookie-banner-title">{content.cookies.title}</strong>
-          <p id="cookie-banner-description">{content.cookies.description}</p>
+      <div
+        className={cn(
+          "mx-auto flex w-[min(1180px,100%)] items-center gap-7 rounded-[22px] border border-line",
+          "bg-white/97 px-6 py-5 shadow-[0_24px_60px_rgba(15,23,42,0.18)] backdrop-blur-[12px]",
+          "animate-cookie-in motion-reduce:animate-none",
+          "max-[760px]:flex-col max-[760px]:items-stretch max-[760px]:gap-[18px] max-[760px]:p-5",
+        )}
+      >
+        <div>
+          <strong
+            id="cookie-banner-title"
+            className="mb-1.5 block text-base tracking-tight"
+          >
+            {content.cookies.title}
+          </strong>
+          <p
+            id="cookie-banner-description"
+            className="m-0 max-w-[78ch] text-[0.88rem] leading-[1.6] text-muted"
+          >
+            {content.cookies.description}
+          </p>
         </div>
 
-        <div className="cookie-banner-actions">
+        <div className="flex shrink-0 gap-3 max-[760px]:flex-col">
           <button
             type="button"
-            className="button button-secondary"
+            className={cn(
+              buttonSecondary,
+              "border-[rgba(17,24,39,0.22)] bg-white",
+              actionButton,
+            )}
             onClick={() => decide("essential")}
           >
             {content.cookies.essential}
           </button>
           <button
             type="button"
-            className="button button-primary"
+            className={cn(
+              buttonPrimary,
+              "shadow-[0_12px_24px_rgba(90,0,227,0.18)]",
+              actionButton,
+            )}
             onClick={() => decide("all")}
           >
             {content.cookies.acceptAll}

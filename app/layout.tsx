@@ -71,12 +71,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="pt-BR"
-      className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full scroll-smooth bg-[#faf5ff] bg-[length:1200px_800px,100%_100%] bg-no-repeat antialiased [scroll-padding-top:100px] [background-image:radial-gradient(1200px_800px_at_top_left,rgba(90,0,227,0.08),transparent_70%),linear-gradient(180deg,#f8fafc_0%,#faf5ff_100%)]`}
     >
       <head>
         <JsonLd />
       </head>
-      <body>
+      <body className="m-0 min-h-screen bg-transparent font-sans text-foreground">
         {children}
         <CookieConsent />
       </body>

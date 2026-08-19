@@ -1,4 +1,6 @@
 import type { ReactNode } from "react";
+import { cn } from "../../lib/cn";
+import { cardBase, cardText, cardTitle, container } from "../../lib/ui";
 
 type CardItem = {
   title: string;
@@ -6,28 +8,29 @@ type CardItem = {
 };
 
 type CardGridProps<T extends CardItem> = {
-  /** Grid class holding the `--grid-*` custom properties. */
   className: string;
-  /** Card class holding the `--card-*` custom properties, plus any modifier. */
   cardClassName: string;
+  titleClassName?: string;
+  textClassName?: string;
   items: readonly T[];
-  /** Optional node rendered above the title (step number, icon, badge). */
   renderMedia?: (item: T) => ReactNode;
 };
 
 export default function CardGrid<T extends CardItem>({
   className,
   cardClassName,
+  titleClassName,
+  textClassName,
   items,
   renderMedia,
 }: CardGridProps<T>) {
   return (
-    <div className={`container card-grid ${className}`}>
+    <div className={cn(container, "grid max-md:grid-cols-2 max-sm:grid-cols-1", className)}>
       {items.map((item) => (
-        <article key={item.title} className={`card ${cardClassName}`}>
+        <article key={item.title} className={cn(cardBase, cardClassName)}>
           {renderMedia?.(item)}
-          <h3>{item.title}</h3>
-          <p>{item.description}</p>
+          <h3 className={cn(cardTitle, titleClassName)}>{item.title}</h3>
+          <p className={cn(cardText, textClassName)}>{item.description}</p>
         </article>
       ))}
     </div>

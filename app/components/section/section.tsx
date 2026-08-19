@@ -1,5 +1,7 @@
 import type { ReactNode } from "react";
 import { withBreaks } from "../with-breaks/with-breaks";
+import { cn } from "../../lib/cn";
+import { container, eyebrow, sectionAlt, sectionPad } from "../../lib/ui";
 
 type SectionHeading = {
   eyebrow: string;
@@ -17,13 +19,20 @@ type SectionHeaderProps = {
 export function SectionHeader({
   id,
   heading,
-  className = "container section-header",
+  className,
 }: SectionHeaderProps) {
   return (
-    <div className={className}>
-      <span className="eyebrow eyebrow-dark">{heading.eyebrow}</span>
-      <h2 id={`${id}-title`}>{withBreaks(heading.title)}</h2>
-      {heading.description ? <p>{heading.description}</p> : null}
+    <div className={cn(container, "mb-8", className)}>
+      <span className={eyebrow}>{heading.eyebrow}</span>
+      <h2
+        id={`${id}-title`}
+        className="mt-4 max-w-[700px] text-[clamp(2rem,3vw,3rem)] leading-[1.08] tracking-[-0.06em]"
+      >
+        {withBreaks(heading.title)}
+      </h2>
+      {heading.description ? (
+        <p className="mt-4 text-foreground">{heading.description}</p>
+      ) : null}
     </div>
   );
 }
@@ -45,7 +54,7 @@ export default function Section({
   return (
     <section
       id={id}
-      className={alt ? "section section-alt" : "section"}
+      className={alt ? sectionAlt : sectionPad}
       aria-labelledby={`${id}-title`}
     >
       {heading ? <SectionHeader id={id} heading={heading} /> : null}

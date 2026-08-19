@@ -2,12 +2,12 @@ import { content } from "../../content";
 import BrandLink from "../brand-link/brand-link";
 import CookiePreferencesButton from "../cookie-preferences-button/cookie-preferences-button";
 import WhatsAppCta from "../whatsapp-cta/whatsapp-cta";
-import "./footer.css";
+import { container } from "../../lib/ui";
 
 function ContactIcon({ name }: { name: "mail" | "instagram" | "phone" }) {
   return (
     <svg
-      className="footer-contact-icon"
+      className="shrink-0 opacity-65 transition-opacity duration-200 group-hover:opacity-100"
       viewBox="0 0 24 24"
       width="18"
       height="18"
@@ -40,25 +40,29 @@ function ContactIcon({ name }: { name: "mail" | "instagram" | "phone" }) {
 
 export default function Footer() {
   return (
-    <footer id="contato" className="footer">
-      <div className="container footer-wrap">
+    <footer id="contato" className="bg-primary py-9 pb-[52px] text-white/90">
+      <div
+        className={`${container} flex items-center justify-between gap-6 max-md:flex-col max-md:items-start`}
+      >
         <div>
-          <BrandLink className="brand brand-footer" />
-          <p>{content.footer.tagline}</p>
+          <BrandLink className="mb-2" imageClassName="brightness-0 invert" />
+          <p className="m-0 text-white/70">{content.footer.tagline}</p>
 
-          <address className="footer-contacts">
+          <address className="mt-[18px] flex flex-col items-start gap-2.5 text-[0.95rem] not-italic">
             {content.contact.items.map((contact) => (
               <a
                 key={contact.href}
                 href={contact.href}
-                className="footer-contact"
+                className="group inline-flex items-center gap-2.5 text-white/85 transition-colors duration-200 hover:text-white"
                 aria-label={`${contact.label}: ${contact.value}`}
                 {...(contact.external
                   ? { target: "_blank", rel: "noopener noreferrer" }
                   : {})}
               >
                 <ContactIcon name={contact.icon} />
-                <span>{contact.value}</span>
+                <span className="group-hover:underline group-hover:underline-offset-[3px]">
+                  {contact.value}
+                </span>
               </a>
             ))}
           </address>
@@ -66,8 +70,8 @@ export default function Footer() {
           <CookiePreferencesButton />
         </div>
 
-        <div className="footer-cta">
-          <p>{content.footer.cta}</p>
+        <div className="flex flex-col items-end gap-3.5 text-right max-md:items-start max-md:text-left">
+          <p className="m-0 text-white/70">{content.footer.cta}</p>
           <WhatsAppCta>{content.footer.ctaButton}</WhatsAppCta>
         </div>
       </div>

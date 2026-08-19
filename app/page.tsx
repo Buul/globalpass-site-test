@@ -12,7 +12,7 @@ import { content } from "./content";
 
 export default function Home() {
   return (
-    <div className="site-shell">
+    <div className="min-h-screen">
       <Header />
       <main id="conteudo" aria-label={content.a11y.main}>
         <Hero />
