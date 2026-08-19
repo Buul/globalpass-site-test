@@ -3,6 +3,7 @@ import userEvent from "@testing-library/user-event";
 import CookieConsent, {
   COOKIE_PREFERENCES_EVENT,
 } from "./cookie-consent";
+import CookiePreferencesButton from "../cookie-preferences-button/cookie-preferences-button";
 import { content } from "../../content";
 
 const STORAGE_KEY = "globalpass:cookie-consent";
@@ -107,6 +108,33 @@ describe("CookieConsent", () => {
 
     unmount();
     window.dispatchEvent(new Event(COOKIE_PREFERENCES_EVENT));
+  });
+
+  it("opens the dialog when cookie preferences is clicked", async () => {
+    const user = userEvent.setup();
+    window.localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify({ status: "all" }),
+    );
+
+    render(
+      <>
+        <CookieConsent />
+        <CookiePreferencesButton />
+      </>,
+    );
+
+    await waitFor(() => {
+      expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+    });
+
+    await user.click(
+      screen.getByRole("button", { name: content.cookies.preferences }),
+    );
+
+    expect(
+      await screen.findByRole("dialog", { name: content.cookies.title }),
+    ).toBeInTheDocument();
   });
 
   it("links to the privacy policy", async () => {
