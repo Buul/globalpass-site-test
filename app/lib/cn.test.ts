@@ -1,4 +1,3 @@
-import { render, screen } from "@testing-library/react";
 import { cn } from "./cn";
 
 describe("cn", () => {

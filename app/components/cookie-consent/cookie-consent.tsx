@@ -31,14 +31,20 @@ export default function CookieConsent() {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    if (readStoredStatus() === null) {
-      setIsOpen(true);
-    }
-
     const reopen = () => setIsOpen(true);
     window.addEventListener(COOKIE_PREFERENCES_EVENT, reopen);
 
-    return () => window.removeEventListener(COOKIE_PREFERENCES_EVENT, reopen);
+    let cancelled = false;
+    queueMicrotask(() => {
+      if (!cancelled && readStoredStatus() === null) {
+        setIsOpen(true);
+      }
+    });
+
+    return () => {
+      cancelled = true;
+      window.removeEventListener(COOKIE_PREFERENCES_EVENT, reopen);
+    };
   }, []);
 
   const decide = useCallback((status: ConsentStatus) => {
@@ -93,7 +99,6 @@ export default function CookieConsent() {
             >
               {content.cookies.privacy}
             </Link>
-            .
           </p>
         </div>
 
