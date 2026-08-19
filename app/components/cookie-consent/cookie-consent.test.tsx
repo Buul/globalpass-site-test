@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { act, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import CookieConsent, {
   COOKIE_PREFERENCES_EVENT,
@@ -103,11 +103,15 @@ describe("CookieConsent", () => {
       expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
     });
 
-    window.dispatchEvent(new Event(COOKIE_PREFERENCES_EVENT));
+    act(() => {
+      window.dispatchEvent(new Event(COOKIE_PREFERENCES_EVENT));
+    });
     expect(await screen.findByRole("dialog")).toBeInTheDocument();
 
     unmount();
-    window.dispatchEvent(new Event(COOKIE_PREFERENCES_EVENT));
+    act(() => {
+      window.dispatchEvent(new Event(COOKIE_PREFERENCES_EVENT));
+    });
   });
 
   it("opens the dialog when cookie preferences is clicked", async () => {

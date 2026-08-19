@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { renderToStaticMarkup } from "react-dom/server";
 import RootLayout, { metadata, viewport } from "./layout";
 import { content } from "./content";
 
@@ -9,14 +9,14 @@ describe("RootLayout", () => {
     );
     expect(viewport.themeColor).toBe("#5A00E3");
 
-    render(
+    const markup = renderToStaticMarkup(
       <RootLayout params={Promise.resolve({})}>
         <p>página</p>
       </RootLayout>,
     );
 
-    expect(screen.getByText("página")).toBeInTheDocument();
-    expect(document.documentElement).toHaveAttribute("lang", "pt-BR");
+    expect(markup).toContain("página");
+    expect(markup).toContain('lang="pt-BR"');
   });
 
   it("indexes in production metadata", async () => {
